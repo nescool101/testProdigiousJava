@@ -2,13 +2,21 @@ package com.test.model;
 
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.test.mongocontext.FestivityMongo;
+import com.test.utilities.Utilities;
+
 /**
  * Class that implements a POJO with the data of the service of Car's Sale
  * 
  * @author NESTOR version 1.0 20/06/2016
  */
+@Document(collection = "festivities")
 public class Festivities {
-
+	@Id
 	private Long id;
 
 	private String iniDate;
@@ -19,10 +27,12 @@ public class Festivities {
 
 	private String desc;
 
-	private List<Festivities> festivities;
-	
-	public Festivities(){
-		
+	public static List<Festivities> festivities;
+
+
+	static {
+		FestivityMongo festivitieContext = Utilities.getBeanContext();
+		festivities = (List<Festivities>) festivitieContext.findAll();
 	}
 
 
@@ -36,6 +46,7 @@ public class Festivities {
 	 * @param location
 	 * @param desc
 	 */
+	@PersistenceConstructor
 	public Festivities(Long id, String iniDate, String finDate, String location, String desc) {
 		this.id = id;
 		this.iniDate = iniDate;
@@ -83,13 +94,9 @@ public class Festivities {
 	public void setdesc(String desc) {
 		this.desc = desc;
 	}
-
-	public List<Festivities> getFestivities() {
-		return festivities;
+	
+	@Override
+	public String toString() {
+		return "{id:" + id + ", name:" + desc + ", place:" + location + ", start:" + iniDate + ", end:" + finDate + "}";
 	}
-
-	public void setFestivities(List<Festivities> festivities) {
-		this.festivities = festivities;
-	}	
-
 }
