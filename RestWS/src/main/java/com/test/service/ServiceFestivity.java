@@ -34,6 +34,11 @@ public class ServiceFestivity {
 
 	private static final AtomicLong counter = new AtomicLong();
 
+	/**Method that get the festivities in Json or XML
+	 * 
+	 * @return Response
+	 */
+	
 	@GET
 	@Produces("application/json")
 	public Response getFestivities() {
@@ -50,6 +55,12 @@ public class ServiceFestivity {
 		}
 		return Response.ok(jsonObject.toString(), MediaType.APPLICATION_JSON).build();
 	}
+	
+	
+	/**Method that get the festivities by ID in Json or XML
+	 * 
+	 * @return Response
+	 */
 
 	@Path("/id/{id}")
 	@GET
@@ -66,6 +77,12 @@ public class ServiceFestivity {
 		}
 	}
 
+	
+	/**Method that create the festivities using Json or XML
+	 * 
+	 * @return Response
+	 */
+	
 	@SuppressWarnings("null")
 	@Path("/create/")
 	@POST

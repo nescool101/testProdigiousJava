@@ -10,7 +10,7 @@ import com.test.mongocontext.FestivityMongo;
 import com.test.utilities.Utilities;
 
 /**
- * Class that implements a POJO with the data of the service of Car's Sale
+ * Class that implements a POJO with the data of the festivities
  * 
  * @author NESTOR version 1.0 20/06/2016
  */
