@@ -1,11 +1,11 @@
 package com.test.model;
 
+import java.util.List;
+
 /**
  * Class that implements a POJO with the data of the service of Car's Sale
  * 
- * @author NESTOR 
- * version 1.0 
- * 20/06/2016
+ * @author NESTOR version 1.0 20/06/2016
  */
 public class Festivities {
 
@@ -19,9 +19,17 @@ public class Festivities {
 
 	private String desc;
 
+	private List<Festivities> festivities;
+	
+	public Festivities(){
+		
+	}
+
+
 	/**
-	 * Constructor of class
-	 * Initialized all the parameters of the Object Festivities
+	 * Constructor of class Initialized all the parameters of the Object
+	 * Festivities
+	 * 
 	 * @param id
 	 * @param iniDate
 	 * @param finDate
@@ -75,5 +83,13 @@ public class Festivities {
 	public void setdesc(String desc) {
 		this.desc = desc;
 	}
+
+	public List<Festivities> getFestivities() {
+		return festivities;
+	}
+
+	public void setFestivities(List<Festivities> festivities) {
+		this.festivities = festivities;
+	}	
 
 }
